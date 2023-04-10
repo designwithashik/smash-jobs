@@ -5,6 +5,8 @@ import './index.css'
 import { ChakraProvider } from '@chakra-ui/react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './components/Home'
+import AppliedJobs from './components/AppliedJobs'
+import Blog from './components/Blog'
 
 const router = createBrowserRouter([
   {
@@ -12,8 +14,16 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: '/home',
+        path: '/',
         element: <Home/>
+      },
+      {
+        path: '/applied-jobs',
+        element: <AppliedJobs/>
+      },
+      {
+        path: '/blog',
+        element: <Blog/>
       }
     ]
   }

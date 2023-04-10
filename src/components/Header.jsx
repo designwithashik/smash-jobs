@@ -5,14 +5,15 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <Flex justifyContent='space-between' align='center'>
+        <Flex bgColor='rgba(152, 115, 255, 0.05)' flexDir={{base:'column', md: 'row'}} justifyContent='space-between' align='center' px={{base: '10px', md: '50px', lg:'200px'}}>
             <Link to='/'><Text fontWeight={800} fontSize={32}>SmashJobs</Text></Link>
-            <Flex gap='5'>
+            <Flex flexDir={{base:'column', md: 'row'}} gap='5' my='20px'>
                 <ActiveLink to='/'>Home</ActiveLink>
                 <ActiveLink to='/applied-jobs'>Applied Jobs</ActiveLink>
                 <ActiveLink to='/blog'>Blog</ActiveLink>
             </Flex>
-            <Button my='50px' colorScheme='teal' bgColor='#7E90FE' >Start Applying</Button>
+            <Button  my={{ base: '20px', md: '50px' }} colorScheme='blue' bgGradient='linear(to-r,rgba(126, 144, 254, 1), rgba(152, 115, 255, 1))'
+ >Start Applying</Button>
         </Flex>
     );
 };
