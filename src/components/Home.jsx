@@ -1,8 +1,9 @@
-import { Box, Button, Flex, Heading, Image, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Grid, Heading, Image, Text } from '@chakra-ui/react';
 import React from 'react';
 import model from '../assets/businessman-preview.png'
 import { useLoaderData } from 'react-router-dom';
 import SingleCategory from './SingleCategory';
+import SingleJob from './SingleJob';
 const Home = () => {
     const {categoriesData, jobsData} = useLoaderData();
     console.log(jobsData)
@@ -24,7 +25,12 @@ const Home = () => {
             <Box my='130px' px={{base: '10px', md: '50px', lg:'200px'}}>
                 <Heading textAlign='center'>Job Category List</Heading>
                 <Text my='16px' textAlign='center'>Explore thousands of job opportunities with all the information you need. Its your future</Text>
-                <Flex mt='32px' textAlign='center' flexWrap='wrap' justify='space-evenly' align='center' gap={4}>{categoriesData.map(category => <SingleCategory category={category}/>)}</Flex>
+                <Flex mt='32px' textAlign='center' flexWrap='wrap' justify='space-evenly' align='center' gap={4}>{categoriesData.map(category => <SingleCategory key={category.id} category={category} />)}</Flex>
+            </Box>
+            <Box my='130px' px={{base: '10px', md: '50px', lg:'200px'}}>
+                <Heading textAlign='center'>Featured Jobs</Heading>
+                <Text my='16px' textAlign='center'>Explore thousands of job opportunities with all the information you need. Its your future</Text>
+                <Grid mt='32px' textAlign='center' gridTemplateColumns='repeat(2, 1fr)' gap={4}>{jobsData.map(job => <SingleJob key={job.id} job={job} />)}</Grid>
             </Box>
         </>
     );
