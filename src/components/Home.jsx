@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Grid, Heading, Image, Text } from '@chakra-ui/react';
+import { Box, Button, Container, Flex, Grid, Heading, Image, Text } from '@chakra-ui/react';
 import React from 'react';
 import model from '../assets/businessman-preview.png'
 import { useLoaderData } from 'react-router-dom';
@@ -9,7 +9,7 @@ const Home = () => {
     console.log(jobsData)
     return (
         <>
-            <Flex gap={10} bgColor='rgba(152, 115, 255, 0.05)' flexDir={{base:'column', md: 'row'}} justify='space-between' align='center' pb={5} px={{base: '10px', md: '50px', lg:'200px'}}>
+            <Flex gap={10} bgColor='rgba(152, 115, 255, 0.05)' flexDir={{base:'column', md: 'row'}} justify='space-between' align='center' pb={5} px={{base: '23px', md: '50px', lg:'200px'}}>
                 <Flex flexDir='column' gap='20px'>
                     <Heading fontSize={{ base: '40px', md:'60px', lg:'80'}}>
                     Smash Your Job Search with <Text as="span" bgGradient='linear(to-r,rgba(126, 144, 254, 1), rgba(152, 115, 255, 1))' bgClip='text'>SmashJobs</Text>
@@ -22,16 +22,19 @@ const Home = () => {
                 </Flex>
                 <Image w='100%' src={model}/>
             </Flex> 
-            <Box my='130px' px={{base: '10px', md: '50px', lg:'200px'}}>
+            <Box my='130px' px={{base: '23px', md: '50px', lg:'200px'}}>
                 <Heading textAlign='center'>Job Category List</Heading>
                 <Text my='16px' textAlign='center'>Explore thousands of job opportunities with all the information you need. Its your future</Text>
                 <Flex mt='32px' textAlign='center' flexWrap='wrap' justify='space-evenly' align='center' gap={4}>{categoriesData.map(category => <SingleCategory key={category.id} category={category} />)}</Flex>
             </Box>
-            <Box my='130px' px={{base: '10px', md: '50px', lg:'200px'}}>
+            <Box my='130px' px={{base: '23px', md: '50px', lg:'200px'}}>
                 <Heading textAlign='center'>Featured Jobs</Heading>
                 <Text my='16px' textAlign='center'>Explore thousands of job opportunities with all the information you need. Its your future</Text>
-                <Grid mt='32px' textAlign='center' gridTemplateColumns='repeat(2, 1fr)' gap={4}>{jobsData.map(job => <SingleJob key={job.id} job={job} />)}</Grid>
+                <Grid mt='32px' gridTemplateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={4}>{jobsData.map(job => <SingleJob key={job.id} job={job} />)}</Grid>
+                <Flex my={5}><Button mx='auto' colorScheme='blue' bgGradient='linear(to-r,rgba(126, 144, 254, 1), rgba(152, 115, 255, 1))'
+ >Get Started</Button></Flex>
             </Box>
+           
         </>
     );
 };
