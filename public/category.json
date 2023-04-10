@@ -2,25 +2,25 @@
     {
       "id": 1,
       "name": "Software & Development",
-      "logo": "https://example.com/tech.png",
+      "logo": "./logos/icons8-laptop-with-cursor-80.png",
       "jobsAvailable": 250
     },
     {
       "id": 2,
       "name": "Healthcare & Wellness",
-      "logo": "https://example.com/healthcare.png",
+      "logo": "./logos/icons8-heart-health-80.png",
       "jobsAvailable": 180
     },
     {
       "id": 3,
       "name": "Education & Training",
-      "logo": "https://example.com/education.png",
+      "logo": "./logos/icons8-education-80.png",
       "jobsAvailable": 120
     },
     {
       "id": 4,
       "name": "Artificial Intelligence",
-      "logo": "https://example.com/finance.png",
+      "logo": "./logos/icons8-bot-80.png",
       "jobsAvailable": 100
     }
   ]

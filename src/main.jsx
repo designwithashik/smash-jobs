@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './components/Home'
 import AppliedJobs from './components/AppliedJobs'
 import Blog from './components/Blog'
+import { catagoriesData } from './utils/loader'
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home/>
+        element: <Home />,
+        loader: catagoriesData
       },
       {
         path: '/applied-jobs',

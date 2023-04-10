@@ -5,7 +5,7 @@ import { Box, Container } from '@chakra-ui/react';
 
 const App = () => {
   return (
-    <Box >
+    <Box>
       <Header />
       <Outlet/>
     </Box>
