@@ -4,11 +4,11 @@ import model from '../assets/businessman-preview.png'
 import { useLoaderData } from 'react-router-dom';
 import SingleCategory from './SingleCategory';
 const Home = () => {
-    const catagories = useLoaderData();
-    console.log(catagories)
+    const {categoriesData, jobsData} = useLoaderData();
+    console.log(jobsData)
     return (
         <>
-            <Flex bgColor='rgba(152, 115, 255, 0.05)' flexDir={{base:'column', md: 'row'}} justify='space-between' align='center' pb={5} px={{base: '10px', md: '50px', lg:'200px'}}>
+            <Flex gap={10} bgColor='rgba(152, 115, 255, 0.05)' flexDir={{base:'column', md: 'row'}} justify='space-between' align='center' pb={5} px={{base: '10px', md: '50px', lg:'200px'}}>
                 <Flex flexDir='column' gap='20px'>
                     <Heading fontSize={{ base: '40px', md:'60px', lg:'80'}}>
                     Smash Your Job Search with <Text as="span" bgGradient='linear(to-r,rgba(126, 144, 254, 1), rgba(152, 115, 255, 1))' bgClip='text'>SmashJobs</Text>
@@ -24,7 +24,7 @@ const Home = () => {
             <Box my='130px' px={{base: '10px', md: '50px', lg:'200px'}}>
                 <Heading textAlign='center'>Job Category List</Heading>
                 <Text my='16px' textAlign='center'>Explore thousands of job opportunities with all the information you need. Its your future</Text>
-                <Flex mt='32px' textAlign='center' flexWrap='wrap' justify='space-evenly' align='center' gap={4}>{catagories.map(category => <SingleCategory category={category}/>)}</Flex>
+                <Flex mt='32px' textAlign='center' flexWrap='wrap' justify='space-evenly' align='center' gap={4}>{categoriesData.map(category => <SingleCategory category={category}/>)}</Flex>
             </Box>
         </>
     );

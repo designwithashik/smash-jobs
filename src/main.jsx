@@ -7,7 +7,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './components/Home'
 import AppliedJobs from './components/AppliedJobs'
 import Blog from './components/Blog'
-import { catagoriesData } from './utils/loader'
+import {catagoriesAndJobsData } from './utils/loader'
 
 const router = createBrowserRouter([
   {
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
-        loader: catagoriesData
+        loader: catagoriesAndJobsData
       },
       {
         path: '/applied-jobs',
