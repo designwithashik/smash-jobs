@@ -22,17 +22,19 @@ const Home = () => {
                 </Flex>
                 <Image w='100%' src={model}/>
             </Flex> 
-            <Box my='130px' px={{base: '23px', md: '50px', lg:'200px'}}>
+            <Box px={{base: '23px', md: '50px', lg:'200px'}}>
+            <Box my='130px'>
                 <Heading textAlign='center'>Job Category List</Heading>
                 <Text my='16px' textAlign='center'>Explore thousands of job opportunities with all the information you need. Its your future</Text>
                 <Flex mt='32px' textAlign='center' flexWrap='wrap' justify='space-evenly' align='center' gap={4}>{categoriesData.map(category => <SingleCategory key={category.id} category={category} />)}</Flex>
             </Box>
-            <Box my='130px' px={{base: '23px', md: '50px', lg:'200px'}}>
+            <Box my='130px'>
                 <Heading textAlign='center'>Featured Jobs</Heading>
                 <Text my='16px' textAlign='center'>Explore thousands of job opportunities with all the information you need. Its your future</Text>
                 <Grid mt='32px' gridTemplateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={4}>{jobsData.map(job => <SingleJob key={job.id} job={job} />)}</Grid>
                 <Flex my={5}><Button mx='auto' colorScheme='blue' bgGradient='linear(to-r,rgba(126, 144, 254, 1), rgba(152, 115, 255, 1))'
  >Get Started</Button></Flex>
+            </Box>
             </Box>
            
         </>
