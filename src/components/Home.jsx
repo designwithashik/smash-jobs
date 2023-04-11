@@ -1,12 +1,13 @@
 import { Box, Button, Container, Flex, Grid, Heading, Image, Text } from '@chakra-ui/react';
-import React from 'react';
+import React, { useContext } from 'react';
 import model from '../assets/businessman-preview.png'
 import { useLoaderData } from 'react-router-dom';
 import SingleCategory from './SingleCategory';
 import SingleJob from './SingleJob';
+import { CategoriesContext, JobsContext } from '../App';
 const Home = () => {
-    const {categoriesData, jobsData} = useLoaderData();
-    console.log(jobsData)
+    const categoriesData = useContext(CategoriesContext);
+    const jobsData = useContext(JobsContext)
     return (
         <>
             <Flex gap={10} bgColor='rgba(152, 115, 255, 0.05)' flexDir={{base:'column', md: 'row'}} justify='space-between' align='center' pb={5} px={{base: '23px', md: '50px', lg:'200px'}}>

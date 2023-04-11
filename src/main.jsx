@@ -14,6 +14,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    loader: catagoriesAndJobsData,
     children: [
       {
         path: '/',
@@ -22,7 +23,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/applied-jobs',
-        element: <AppliedJobs/>
+        element: <AppliedJobs />,
+        loader: catagoriesAndJobsData
       },
       {
         path: '/blog',

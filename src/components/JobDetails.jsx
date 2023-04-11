@@ -4,8 +4,26 @@ import { FaCalendar, FaDollarSign, FaEnvelope, FaLocationArrow, FaMailBulk, FaMa
 import { useLoaderData } from 'react-router-dom';
 
 const JobDetails = () => {
-    const {jobDescription, jobResponsibility,  jobTitle, location, salary, experiences, contactInformation, educationalRequirements } = useLoaderData();
-    // console.log(data)
+    const {id, jobDescription, jobResponsibility,  jobTitle, location, salary, experiences, contactInformation, educationalRequirements } = useLoaderData();
+    const handleApply = id => {
+        let appliedBefore =[]
+        const appliedJobs = localStorage.getItem('applied-jobs')
+        
+        if (appliedJobs) {
+            appliedBefore = JSON.parse(appliedJobs);
+            const checkApply = appliedBefore.find(jobId => jobId == id);
+            if (checkApply) {
+                alert('already applied')
+            }
+            else {
+                appliedBefore.push(id)
+            }
+        }
+        else {
+            appliedBefore.push(id)
+        }
+        localStorage.setItem( 'applied-jobs', JSON.stringify(appliedBefore))
+    }
     return (
         <><Flex mb='130px' gap={10} bgColor='rgba(152, 115, 255, 0.05)' flexDir={{ base: 'column', md: 'row' }} justify='center' align='center' pb={5} px={{ base: '23px', md: '50px', lg: '200px' }}>
             <Heading my='140px'>Job Details</Heading>
@@ -34,7 +52,8 @@ const JobDetails = () => {
                         <Flex mt='24px' gap={2} align='center'><Icon color='rgba(152, 115, 255, 1)' as={FaEnvelope}> </Icon><Text color='rgba(117, 117, 117, 1)'><Text as='span' fontWeight={700} color='rgba(71, 71, 71, 1)'>Email : </Text>{contactInformation.email}</Text></Flex>
                         <Flex mt='24px' gap={2} align='center'><Icon color='rgba(152, 115, 255, 1)' as={FaLocationArrow}> </Icon><Text color='rgba(117, 117, 117, 1)'><Text as='span' fontWeight={700} color='rgba(71, 71, 71, 1)'>Address : </Text>{location}</Text></Flex>
                     </Card>
-                    <Button colorScheme='blue' bgGradient='linear(to-r,rgba(126, 144, 254, 1), rgba(152, 115, 255, 1))'
+                    <Button onClick={()=>handleApply(id)}
+                        colorScheme='blue' bgGradient='linear(to-r,rgba(126, 144, 254, 1), rgba(152, 115, 255, 1))'
  >Apply Now</Button>
                 </Flex>
             </Grid>
