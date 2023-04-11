@@ -22,12 +22,21 @@ const AppliedJobs = () => {
 	}, [])
 
     const handleFilter = (event) => {
-        const appliedJob = currentApplied.filter(job => job.remoteOrOnsite == event.target.value);
+        let appliedJob = currentApplied.filter(job => job.remoteOrOnsite == event.target.value);
+        console.log(event.target.value)
         if (appliedJob.length) {
+            console.log('Inside 1st condition')
+
             setJobs(appliedJob);
         }
+        else if (!event.target.value) {
+            console.log('Inside 2nd Condition')
+            setJobs(currentApplied);
+        }
         else {
-            setJobs(currentApplied)
+            console.log('inside third Condition')
+            console.log(appliedJob)
+            setJobs(appliedJob);
         }
     }
 
@@ -46,7 +55,7 @@ const AppliedJobs = () => {
             </Select></Box>
             </Flex>
             <Flex justify='center' align='flex-start' flexDir='column' gap={5} >
-            {jobs.map(job=><SingleAppliedJob job={job}/>)}</Flex>
+            {jobs.map(job=><SingleAppliedJob key={job.id} job={job}/>)}</Flex>
             </Box>
         </>
     );
