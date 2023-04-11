@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { JobsContext } from '../App';
 import SingleAppliedJob from './SingleAppliedJob';
-import { Flex, Heading } from '@chakra-ui/react';
+import { Box, Flex, Heading, Select, SelectField } from '@chakra-ui/react';
 
 const AppliedJobs = () => {
     const [jobs, setJobs] = useState([])
@@ -21,16 +21,33 @@ const AppliedJobs = () => {
 		setJobs(currentApplied)
 	}, [])
 
-    
+    const handleFilter = (event) => {
+        const appliedJob = currentApplied.filter(job => job.remoteOrOnsite == event.target.value);
+        if (appliedJob.length) {
+            setJobs(appliedJob);
+        }
+        else {
+            setJobs(currentApplied)
+        }
+    }
 
     return (
         
         <>
-            <Flex mb='130px' gap={10} bgColor='rgba(152, 115, 255, 0.05)' flexDir={{ base: 'column', md: 'row' }} justify='center' align='center' pb={5} px={{ base: '23px', md: '50px', lg: '200px' }}>
+            
+            <Flex mb='130px' gap={10} bgColor='rgba(152, 115, 255, 0.05)' flexDir={{ base: 'column', md: 'row' }} justify='center' align='center' pb={5} >
             <Heading my='140px'>Applied Jobs</Heading>
             </Flex>
-            <Flex justify='center' align='flex-start' flexDir='column' gap={5} px={{base: '23px', md: '50px', lg:'200px'}}>
+            <Box pb='34px' px={{ base: '23px', md: '50px', lg: '200px' }}>
+            <Flex mb='32px' justify='flex-end'>
+                <Box><Select onChange={handleFilter} fontWeight={500} variant='filled' placeholder='Filter By'>
+                    <option value="Remote">Remote</option>
+                    <option value="Onsite">Onsite</option>
+            </Select></Box>
+            </Flex>
+            <Flex justify='center' align='flex-start' flexDir='column' gap={5} >
             {jobs.map(job=><SingleAppliedJob job={job}/>)}</Flex>
+            </Box>
         </>
     );
 };
