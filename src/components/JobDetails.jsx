@@ -1,5 +1,6 @@
 import { Box, Button, Card, CardBody, CardHeader, Flex, Grid, Heading, Icon, Text } from '@chakra-ui/react';
 import React from 'react';
+import { toast } from 'react-hot-toast';
 import { FaCalendar, FaDollarSign, FaEnvelope, FaLocationArrow, FaMailBulk, FaMailchimp, FaPhone, FaVoicemail } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 
@@ -13,7 +14,7 @@ const JobDetails = () => {
             appliedBefore = JSON.parse(appliedJobs);
             const checkApply = appliedBefore.find(jobId => jobId == id);
             if (checkApply) {
-                alert('already applied')
+                toast.error('Already applied for this Job.');
             }
             else {
                 appliedBefore.push(id)

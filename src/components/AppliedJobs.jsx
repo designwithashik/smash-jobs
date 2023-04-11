@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import { JobsContext } from '../App';
 import SingleAppliedJob from './SingleAppliedJob';
 import { Box, Flex, Heading, Select, SelectField } from '@chakra-ui/react';
+import { toast } from 'react-hot-toast';
 
 const AppliedJobs = () => {
     const [jobs, setJobs] = useState([])
@@ -10,10 +11,12 @@ const AppliedJobs = () => {
     const appliedJobsFromStorage = localStorage.getItem('applied-jobs');
     const jobsId = JSON.parse(appliedJobsFromStorage);
     let currentApplied = []
-    for (const id of jobsId) {
-        const appliedJob = jobsData.find(job => job.id == id);
-        if (appliedJob) {
-            currentApplied.push(appliedJob);
+    if (jobsId) {
+        for (const id of jobsId) {
+            const appliedJob = jobsData.find(job => job.id == id);
+            if (appliedJob) {
+                currentApplied.push(appliedJob);
+            }
         }
     }
     
@@ -25,18 +28,16 @@ const AppliedJobs = () => {
         let appliedJob = currentApplied.filter(job => job.remoteOrOnsite == event.target.value);
         console.log(event.target.value)
         if (appliedJob.length) {
-            console.log('Inside 1st condition')
 
             setJobs(appliedJob);
         }
         else if (!event.target.value) {
-            console.log('Inside 2nd Condition')
             setJobs(currentApplied);
         }
         else {
-            console.log('inside third Condition')
-            console.log(appliedJob)
             setJobs(appliedJob);
+            toast(`Didn't Apply for ${event.target.value} Jobs. 
+            Smash ${event.target.value} Jobs Now🔥`)
         }
     }
 
