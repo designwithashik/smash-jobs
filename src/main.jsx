@@ -12,7 +12,6 @@ import JobDetails from './components/JobDetails'
 import { Toaster } from 'react-hot-toast';
 import Statistics from './components/Statistics'
 
-
 const router = createBrowserRouter([
   {
     path: '/',

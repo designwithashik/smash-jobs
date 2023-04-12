@@ -8,6 +8,7 @@ const Blog = () => {
             <ColorBackground justify='center'>
                 <Heading my='140px'>Blog</Heading>
             </ColorBackground>
+            
         </>
     );
 };
