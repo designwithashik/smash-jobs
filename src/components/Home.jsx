@@ -15,7 +15,7 @@ const Home = () => {
         setJobs(firstShowJobs);
 
     },[])
-    const handleShowMore = (event) => {
+    const handleShowAllJobs = (event) => {
         setJobs(jobsData);
         event.target.style.display = 'none'
     }
@@ -44,7 +44,7 @@ const Home = () => {
                 <Heading textAlign='center'>Featured Jobs</Heading>
                 <Text my='16px' textAlign='center'>Explore thousands of job opportunities with all the information you need. Its your future</Text>
                 <Grid mt='32px' gridTemplateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={4}>{jobs.map(job => <SingleJob key={job.id} job={job} />)}</Grid>
-                <Flex my={5}><Button onClick={()=>handleShowMore} mx='auto' colorScheme='blue' bgGradient='linear(to-r,rgba(126, 144, 254, 1), rgba(152, 115, 255, 1))'
+                <Flex my={5}><Button onClick={handleShowAllJobs} mx='auto' colorScheme='blue' bgGradient='linear(to-r,rgba(126, 144, 254, 1), rgba(152, 115, 255, 1))'
  >See All Jobs</Button></Flex>
             </Box>
             </Box>
