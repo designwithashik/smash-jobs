@@ -2,6 +2,7 @@ import React, { createContext, useContext } from 'react';
 import Header from './components/Header';
 import { Outlet, useLoaderData } from 'react-router-dom';
 import { Box, Container } from '@chakra-ui/react';
+import Footer from './components/Footer';
 
 export const JobsContext = createContext([]);
   export const CategoriesContext = createContext([]);
@@ -15,7 +16,8 @@ const App = () => {
       <Box>
       <Header />
       <Outlet/>
-    </Box>
+      </Box>
+      <Footer/>
       </CategoriesContext.Provider>
     </JobsContext.Provider>
   );
