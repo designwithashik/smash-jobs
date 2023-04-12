@@ -1,6 +1,5 @@
 import { Box, Button, Container, Flex, Grid, Heading, Image, Text } from '@chakra-ui/react';
 import React, { useContext, useEffect, useState } from 'react';
-import model from '../assets/businessman-preview.png'
 import { useLoaderData } from 'react-router-dom';
 import SingleCategory from './SingleCategory';
 import SingleJob from './SingleJob';
