@@ -1,6 +1,6 @@
 ### **Smash Jobs Repository**
 ## **Live Link**
-Hosted in Netlify -> [SmashJobs](https://smash-jobs.netlify.app/).
+Hosted in Netlify -> [SmashJobs](https://smash-jobs.netlify.app/)
 
 
 ## Best Features of this Project
