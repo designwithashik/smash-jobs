@@ -11,12 +11,14 @@ import {catagoriesAndJobsData, jobDetails } from './utils/loader'
 import JobDetails from './components/JobDetails'
 import { Toaster } from 'react-hot-toast';
 import Statistics from './components/Statistics'
+import ErrorPage from './components/ErrorPage'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     loader: catagoriesAndJobsData,
+    errorElement: <ErrorPage/>,
     children: [
       {
         path: '/',
