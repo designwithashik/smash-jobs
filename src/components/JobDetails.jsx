@@ -19,10 +19,14 @@ const JobDetails = () => {
             }
             else {
                 appliedBefore.push(id)
+                toast.success('Application sent for this Job.');
+
             }
         }
         else {
             appliedBefore.push(id)
+            toast.success('Application sent for this Job.');
+
         }
         localStorage.setItem( 'applied-jobs', JSON.stringify(appliedBefore))
     }
@@ -30,7 +34,7 @@ const JobDetails = () => {
         <><ColorBackground justify='center'>
         <Heading my='140px'>Job Details</Heading>
     </ColorBackground>
-            <Grid my='130px' gap={5} px={{ base: '23px', md: '50px', lg: '200px' }} gridTemplateColumns={{base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', lg: '3fr 1fr'}}>
+            <Grid my='130px' gap={5} px={{ base: '23px', md: '50px', lg: '200px' }} gridTemplateColumns={{base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', lg: '2fr 1fr'}}>
                 <Box>
                 <Text mb='24px' color='rgba(117, 117, 117, 1)'><Text fontWeight={700} color='black' as='span'>Job Description: </Text>{jobDescription}</Text>
             <Text mb='24px' color='rgba(117, 117, 117, 1)'><Text fontWeight={700} color='black' as='span'>Job Responsibility: </Text>{jobResponsibility}</Text>
