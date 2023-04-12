@@ -32,13 +32,13 @@ const Home = () => {
  >Get Started</Button>
                     </Box>
                 </Flex>
-                <Image w='100%' src={model}/>
+                <Image w='100%' src='https://i.ibb.co/x6K5S74/businessman-preview.png'/>
             </BannerBackground>
             <Box px={{base: '23px', md: '50px', lg:'200px'}}>
             <Box my='130px'>
                 <Heading textAlign='center'>Job Category List</Heading>
                 <Text my='16px' textAlign='center'>Explore thousands of job opportunities with all the information you need. Its your future</Text>
-                <Flex mt='32px' textAlign='center' flexWrap='wrap' justify='space-evenly' align='center' gap={4}>{categoriesData.map(category => <SingleCategory key={category.id} category={category} />)}</Flex>
+                <Flex mt='32px' textAlign='center' flexDir={{base: 'column', lg: 'row'}} justify='space-evenly' align='center' gap={4}>{categoriesData.map(category => <SingleCategory key={category.id} category={category} />)}</Flex>
             </Box>
             <Box my='130px'>
                 <Heading textAlign='center'>Featured Jobs</Heading>

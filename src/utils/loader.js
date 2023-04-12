@@ -1,5 +1,5 @@
 export const catagoriesAndJobsData = async() => {
-    const categories = await fetch('/category.json');
+    const categories = await fetch('/categories.json');
     const categoriesData = await categories.json();
     const jobs = await fetch('/jobs.json');
     const jobsData = await jobs.json();
@@ -12,5 +12,5 @@ export const jobDetails = async({ params }) => {
     const clickedJob = jobsData.find(job=>job.id == params.id)
     console.log(clickedJob);
     return clickedJob;
-    // return params.id
+    
 }
