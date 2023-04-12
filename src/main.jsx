@@ -10,6 +10,7 @@ import Blog from './components/Blog'
 import {catagoriesAndJobsData, jobDetails } from './utils/loader'
 import JobDetails from './components/JobDetails'
 import { Toaster } from 'react-hot-toast';
+import Statistics from './components/Statistics'
 
 
 const router = createBrowserRouter([
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home />,
         loader: catagoriesAndJobsData
+      },
+      {
+        path: '/statistics',
+        element: <Statistics/>
       },
       {
         path: '/applied-jobs',

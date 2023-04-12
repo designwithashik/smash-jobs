@@ -5,6 +5,7 @@ import { useLoaderData } from 'react-router-dom';
 import SingleCategory from './SingleCategory';
 import SingleJob from './SingleJob';
 import { CategoriesContext, JobsContext } from '../App';
+import BannerBackground from './ColorBackground';
 const Home = () => {
     const categoriesData = useContext(CategoriesContext);
     const jobsData = useContext(JobsContext)
@@ -20,8 +21,8 @@ const Home = () => {
     }
     return (
         <>
-            <Flex gap={10} bgColor='rgba(152, 115, 255, 0.05)' flexDir={{base:'column', md: 'row'}} justify='space-between' align='center' pb={5} px={{base: '23px', md: '50px', lg:'200px'}}>
-                <Flex flexDir='column' gap='20px'>
+            <BannerBackground justify='space-between'>
+            <Flex flexDir='column' gap='20px' my='20px'>
                     <Heading fontSize={{ base: '40px', md:'60px', lg:'80'}}>
                     Smash Your Job Search with <Text as="span" bgGradient='linear(to-r,rgba(126, 144, 254, 1), rgba(152, 115, 255, 1))' bgClip='text'>SmashJobs</Text>
                     </Heading>
@@ -32,7 +33,7 @@ const Home = () => {
                     </Box>
                 </Flex>
                 <Image w='100%' src={model}/>
-            </Flex> 
+            </BannerBackground>
             <Box px={{base: '23px', md: '50px', lg:'200px'}}>
             <Box my='130px'>
                 <Heading textAlign='center'>Job Category List</Heading>
@@ -43,7 +44,7 @@ const Home = () => {
                 <Heading textAlign='center'>Featured Jobs</Heading>
                 <Text my='16px' textAlign='center'>Explore thousands of job opportunities with all the information you need. Its your future</Text>
                 <Grid mt='32px' gridTemplateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={4}>{jobs.map(job => <SingleJob key={job.id} job={job} />)}</Grid>
-                <Flex my={5}><Button onClick={()=>handleShowMore(event)} mx='auto' colorScheme='blue' bgGradient='linear(to-r,rgba(126, 144, 254, 1), rgba(152, 115, 255, 1))'
+                <Flex my={5}><Button onClick={()=>handleShowMore} mx='auto' colorScheme='blue' bgGradient='linear(to-r,rgba(126, 144, 254, 1), rgba(152, 115, 255, 1))'
  >See All Jobs</Button></Flex>
             </Box>
             </Box>

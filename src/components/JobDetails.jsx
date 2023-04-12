@@ -3,6 +3,7 @@ import React from 'react';
 import { toast } from 'react-hot-toast';
 import { FaCalendar, FaDollarSign, FaEnvelope, FaLocationArrow, FaMailBulk, FaMailchimp, FaPhone, FaVoicemail } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
+import ColorBackground from './ColorBackground';
 
 const JobDetails = () => {
     const {id, jobDescription, jobResponsibility,  jobTitle, location, salary, experiences, contactInformation, educationalRequirements } = useLoaderData();
@@ -26,10 +27,10 @@ const JobDetails = () => {
         localStorage.setItem( 'applied-jobs', JSON.stringify(appliedBefore))
     }
     return (
-        <><Flex mb='130px' gap={10} bgColor='rgba(152, 115, 255, 0.05)' flexDir={{ base: 'column', md: 'row' }} justify='center' align='center' pb={5} px={{ base: '23px', md: '50px', lg: '200px' }}>
-            <Heading my='140px'>Job Details</Heading>
-        </Flex>
-            <Grid mb='130px' gap={5} px={{ base: '23px', md: '50px', lg: '200px' }} gridTemplateColumns={{base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', lg: '3fr 1fr'}}>
+        <><ColorBackground justify='center'>
+        <Heading my='140px'>Job Details</Heading>
+    </ColorBackground>
+            <Grid my='130px' gap={5} px={{ base: '23px', md: '50px', lg: '200px' }} gridTemplateColumns={{base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', lg: '3fr 1fr'}}>
                 <Box>
                 <Text mb='24px' color='rgba(117, 117, 117, 1)'><Text fontWeight={700} color='black' as='span'>Job Description: </Text>{jobDescription}</Text>
             <Text mb='24px' color='rgba(117, 117, 117, 1)'><Text fontWeight={700} color='black' as='span'>Job Responsibility: </Text>{jobResponsibility}</Text>
